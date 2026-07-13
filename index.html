@@ -310,7 +310,7 @@
         <section class="section" id="story">
           <div class="section-title"><div><span class="section-kicker">Your Connected Story</span><h3>Tell it like it happened.</h3><p>今日完整故事：把零散回答串成一段真正能说出口的话。</p></div></div>
           <article class="story-card">
-            <div class="story-top"><div><b>Natural Story</b><small>先听整段，再打开逐句跟读</small></div><div class="listen-group"><button class="listen-btn" data-speak="${speechAttr(d.story.en)}" data-rate="0.92">▶ 听整段</button><button class="listen-btn secondary" data-speak="${speechAttr(d.story.en)}" data-rate="0.72">🐢 慢速</button></div></div>
+            <div class="story-top"><div><b>Natural Story</b><small>先听整段，再打开逐句跟读</small></div><div class="listen-group"><button class="listen-btn" data-speak="${speechAttr(d.story.en)}" data-rate="0.92">▶ 听整段</button><button class="listen-btn secondary" data-speak="${speechAttr(d.story.en)}" data-rate="0.78">🐢 慢速</button></div></div>
             <div class="story-body"><p class="story-en">${esc(d.story.en)}</p><p class="story-cn">${esc(d.story.cn)}</p></div>
             <details class="shadowing"><summary>打开逐句跟读模式</summary><div class="sentence-list">${d.story.sentences.map((s,i)=>`<div class="sentence"><span class="sentence-no">${String(i+1).padStart(2,'0')}</span><div><div class="en">${esc(s[0])}</div><div class="cn">${esc(s[1])}</div></div>${speakButton(s[0])}</div>`).join("")}</div></details>
           </article>
@@ -336,12 +336,28 @@
       document.body.classList.toggle("hide-cn",!showCn);
     }
 
+    function preferredDeviceVoice(voices){
+      const scored=voices.filter(v=>v.lang&&v.lang.toLowerCase().startsWith("en")).map(v=>{
+        let score=v.lang.toLowerCase().startsWith("en-us")?100:30;
+        if(/premium/i.test(v.name)) score+=1000;
+        if(/enhanced/i.test(v.name)) score+=900;
+        if(/natural|neural/i.test(v.name)) score+=800;
+        if(/ava/i.test(v.name)) score+=160;
+        if(/zoe/i.test(v.name)) score+=150;
+        if(/samantha/i.test(v.name)) score+=140;
+        if(/allison/i.test(v.name)) score+=130;
+        if(/google us english|microsoft.*online/i.test(v.name)) score+=120;
+        return {voice:v,score};
+      }).sort((a,b)=>b.score-a.score);
+      return scored[0]?.voice||null;
+    }
+
     function speak(text,rate=.92){
       if(!("speechSynthesis" in window)){showToast("当前浏览器不支持朗读");return;}
       speechSynthesis.cancel();
       const utterance=new SpeechSynthesisUtterance(text);
       const voices=speechSynthesis.getVoices();
-      utterance.voice=voices.find(v=>v.lang.startsWith("en-US")&&/Samantha|Ava|Allison|Google|Microsoft/i.test(v.name))||voices.find(v=>v.lang.startsWith("en-US"))||voices.find(v=>v.lang.startsWith("en"))||null;
+      utterance.voice=preferredDeviceVoice(voices);
       utterance.lang="en-US";utterance.rate=rate;utterance.pitch=1;
       utterance.onstart=()=>showToast(rate<.8?"慢速朗读中…":"正在朗读…");
       utterance.onend=()=>hideToast();utterance.onerror=()=>hideToast();
