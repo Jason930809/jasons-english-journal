@@ -14,15 +14,19 @@
       --yellow:#ffc800;--yellow-soft:#fff8d8;--red:#ff4b4b;
       --ink:#17333d;--muted:#6b8288;--line:#dbe8df;--paper:#fffdf7;--page:#faf6e9;
       --shadow:0 5px 0 #dce3e8;--radius:22px;
+      --font-display:ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold","Avenir Next Rounded",system-ui,sans-serif;
+      --font-en:"Avenir Next","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --font-cn:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;color:var(--ink);background-color:var(--page);background-image:radial-gradient(#cbdccd 1px,transparent 1px);background-size:18px 18px;
-      font-family:ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold","Nunito","PingFang SC","Hiragino Sans GB",system-ui,sans-serif;
+      font-family:var(--font-en);
       -webkit-font-smoothing:antialiased}
-    button{font:inherit}
+    button{font-family:var(--font-display)}
     .cn,.lesson-cn,.hero p,.section-title p,.upgrade-note,.correction p,.review-card p,footer{
-      font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+      font-family:var(--font-cn)}
+    h1,h2,h3,h4,.brand,.streak,.eyebrow,.day-tab,.lesson-kicker,.section-kicker,.speaker,.level{font-family:var(--font-display)}
     button:focus-visible,summary:focus-visible{outline:4px solid rgba(28,176,246,.25);outline-offset:3px}
     .app{max-width:1160px;margin:auto;padding:22px 22px 80px}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
@@ -72,8 +76,8 @@
     .coach .avatar{background:var(--blue);box-shadow:0 3px 0 var(--blue-dark)}.jason .avatar{background:var(--green);box-shadow:0 3px 0 var(--green-dark)}
     .speaker{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:1000;margin-bottom:4px}
     .coach .speaker{color:var(--blue-dark)}.jason .speaker{color:var(--green-dark)}
-    .en{font-size:17px;font-weight:750;line-height:1.58;letter-spacing:-.006em}.cn{font-size:14.5px;line-height:1.62;color:var(--muted);margin-top:4px}
-    .speak-btn{width:42px;height:42px;border:2px solid #cfd7e2;border-bottom-width:4px;border-radius:13px;background:white;color:var(--blue-dark);cursor:pointer;font-size:17px}
+    .en{font-family:var(--font-en);font-size:16.5px;font-weight:650;line-height:1.62;letter-spacing:-.004em}.cn{font-family:var(--font-cn);font-size:14.5px;line-height:1.68;color:var(--muted);margin-top:4px}
+    .speak-btn{width:42px;height:42px;border:2px solid #b9dd9f;border-bottom-width:4px;border-radius:50%;background:var(--green-soft);color:var(--green-dark);cursor:pointer;font-size:15px;font-weight:1000}
     .speak-btn:active,.listen-btn:active,.toggle:active,.day-tab:active{transform:translateY(2px);border-bottom-width:2px}
 
     .story-card{position:relative;overflow:hidden;background:var(--paper);border:2px solid #b9dd9f;border-radius:28px;box-shadow:0 7px 0 #d7e7cb}
@@ -83,7 +87,7 @@
     .listen-btn{border:2px solid var(--green-dark);border-bottom-width:4px;border-radius:14px;background:var(--green);color:white;padding:10px 14px;font-size:13px;font-weight:1000;cursor:pointer}
     .listen-btn.secondary{background:white;color:var(--green-dark);border-color:#a8d488}
     .story-body{padding:27px 30px 24px}
-    .story-en{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:clamp(20px,2.3vw,25px);line-height:1.78;font-weight:600;color:#26344d;letter-spacing:.005em;margin:0}
+    .story-en{font-family:var(--font-en);font-size:clamp(18px,1.75vw,21px);line-height:1.78;font-weight:600;color:#26344d;letter-spacing:-.004em;margin:0;max-width:68ch}
     .story-cn{font-size:15.5px;line-height:1.9;color:#69758a;margin:18px 0 0;padding-top:17px;border-top:2px dashed #dde5dc}
     details.shadowing{border-top:2px solid #e2ebdc;background:#fbfff7}
     details.shadowing summary{list-style:none;cursor:pointer;padding:16px 24px;font-size:14px;font-weight:1000;color:var(--green-dark);display:flex;align-items:center;justify-content:space-between}
@@ -96,29 +100,32 @@
     .upgrade-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .upgrade-card{background:white;border:2px solid #ded4fa;border-radius:20px;box-shadow:0 5px 0 #e5dffa;overflow:hidden}
     .upgrade-card h4{margin:0;padding:15px 17px;background:var(--purple-soft);font-size:15px;color:var(--purple-dark);border-bottom:2px solid #e6defa}
+    .upgrade-card h4 .en{font-family:var(--font-display);font-size:15px;line-height:1.3}.upgrade-card h4 .cn{font-size:12.5px;line-height:1.45;margin-top:3px;color:#75659d;font-weight:700}
     .upgrade-lines{padding:9px 16px 10px}
-    .upgrade-line{display:grid;grid-template-columns:70px 1fr 36px;gap:8px;align-items:center;padding:10px 0}
+    .upgrade-line{display:grid;grid-template-columns:70px 1fr 44px;gap:8px;align-items:center;padding:10px 0}
     .upgrade-line+.upgrade-line{border-top:1px solid #ece8f6}
-    .level{font-size:10px;font-weight:1000;letter-spacing:.08em;border-radius:999px;padding:5px 7px;text-align:center;background:#f1f2f5;color:#667085}
+    .level{font-size:9px;font-weight:1000;letter-spacing:.05em;border-radius:12px;padding:5px 6px;text-align:center;background:#f1f2f5;color:#667085;line-height:1.25}
+    .level .en,.level .cn{display:block;font-size:inherit;line-height:inherit;margin:0;color:inherit}
     .level.natural{color:#5d3db4;background:#eee8ff}.level.spoken{color:white;background:var(--purple)}
-    .upgrade-line .en{font-size:15px;line-height:1.45}
-    .mini-speak{width:40px;height:40px;border:0;border-radius:11px;background:var(--purple-soft);color:var(--purple-dark);cursor:pointer}
+    .upgrade-copy .en{font-size:15px;line-height:1.45}.upgrade-copy .cn{font-size:12.5px;line-height:1.5;margin-top:3px}
+    .mini-speak{width:44px;height:44px;border:2px solid #d9ccfa;border-bottom-width:4px;border-radius:50%;background:var(--purple-soft);color:var(--purple-dark);cursor:pointer;font-size:13px;font-weight:1000}
     .upgrade-note{margin:0 16px 16px;padding:11px 12px;border-radius:12px;background:#faf8ff;color:#6b6480;font-size:13px;line-height:1.6}
 
     .correction-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
     .correction{background:white;border:2px solid #eedb78;border-radius:19px;box-shadow:0 5px 0 #f0e5ac;padding:16px}
     .pair{display:grid;gap:7px;margin-bottom:10px}.wrong,.right{font-size:15px;line-height:1.45;font-weight:800;border-radius:11px;padding:9px 11px}
     .wrong{background:#fff0f0;color:#b73737}.right{background:#edfbdf;color:#347f08}
-    .correction p{font-size:13.5px;line-height:1.65;color:var(--muted);margin:0}
+    .wrong .en,.right .en{font-size:15px;line-height:1.45}.wrong .cn,.right .cn{font-size:12.5px;line-height:1.45;margin-top:3px;color:inherit}
+    .correction-note .en{font-size:13.5px;line-height:1.6;font-weight:600;color:#52666c}.correction-note .cn{font-size:13px;line-height:1.65;color:var(--muted);margin-top:3px}
 
     .review-card{display:flex;align-items:center;justify-content:space-between;gap:18px;background:#24304a;color:white;border-radius:22px;padding:21px 23px;box-shadow:0 6px 0 #111a2c}
-    .review-card h4{font-size:18px;margin:0 0 5px}.review-card p{color:#cfd8e8;margin:0;font-size:14px;line-height:1.55}
+    .review-card h4{font-size:18px;margin:0 0 5px}.review-card p{color:#cfd8e8;margin:0;font-size:14px;line-height:1.55}.review-card p.cn{margin-top:4px;color:#adb9ce}
     .review-card button{flex:none;border:2px solid white;border-bottom-width:4px;border-radius:14px;background:white;color:#24304a;padding:10px 14px;font-weight:1000;cursor:pointer}
     footer{text-align:center;color:#8a94a6;font-size:12px;line-height:1.7;margin-top:54px}
-    .hide-en .en,.hide-en .story-en,.hide-en .upgrade-line{display:none}.hide-cn .cn,.hide-cn .story-cn{display:none}
+    .hide-en .en,.hide-en .story-en{display:none}.hide-cn .cn,.hide-cn .story-cn,.hide-cn .lesson-cn{display:none}
     .hide-en .turn{grid-template-columns:42px 1fr}.hide-en .turn .speak-btn{display:none}
     .hide-en .sentence{grid-template-columns:36px 1fr}.hide-en .sentence .speak-btn{display:none}
-    .hide-en .listen-group{display:none}
+    .hide-en .listen-group,.hide-en .mini-speak{display:none}.hide-en .upgrade-line{grid-template-columns:70px 1fr}
     .voice-toast{position:fixed;z-index:20;left:50%;bottom:24px;transform:translate(-50%,120px);opacity:0;background:#24304a;color:white;border-radius:999px;padding:11px 17px;font-size:13px;font-weight:800;box-shadow:0 8px 24px rgba(22,32,50,.2);transition:.25s}
     .voice-toast.show{transform:translate(-50%,0);opacity:1}
     @media(max-width:760px){
@@ -126,16 +133,16 @@
       .day-path{gap:8px}.day-tab{min-height:78px;padding:10px 5px;text-align:center}.day-num{width:auto;height:auto;margin-bottom:6px}.day-tab span:last-child{display:block}.day-tab span:last-child b{font-size:12px}.day-tab span:last-child small{display:none}
       .lesson-head{align-items:flex-start;flex-direction:column}.lang-controls{justify-content:flex-start}
       .exchange{padding:15px 13px}.turn{grid-template-columns:38px 1fr 40px;gap:9px}.avatar{width:37px;height:37px}.en{font-size:16px}.cn{font-size:14px}
-      .story-top{align-items:flex-start;flex-direction:column;padding:17px}.story-body{padding:22px 19px}.story-en{font-size:20px;line-height:1.72}.story-cn{font-size:14.5px;line-height:1.8}
-      .upgrade-grid,.correction-list{grid-template-columns:1fr}.upgrade-line{grid-template-columns:65px 1fr 34px}.review-card{align-items:flex-start;flex-direction:column}
+      .story-top{align-items:flex-start;flex-direction:column;padding:17px}.story-body{padding:22px 19px}.story-en{font-size:18.5px;line-height:1.72}.story-cn{font-size:14.5px;line-height:1.8}
+      .upgrade-grid,.correction-list{grid-template-columns:1fr}.upgrade-line{grid-template-columns:65px 1fr 44px}.review-card{align-items:flex-start;flex-direction:column}
     }
     @media(max-width:430px){
       .topbar{gap:8px}.brand{gap:8px;font-size:14px}.brand-mark{width:42px;height:42px;border-radius:13px}.streak{padding:7px 9px;font-size:12px}
       .hero{padding:31px 20px 30px}.hero h1{font-size:43px;line-height:.98;margin-top:22px}.hero p{font-size:15px;line-height:1.7}.hero-meta{gap:7px}.meta-pill{font-size:11px;padding:7px 9px}
       .lesson-head h2{font-size:34px}.lesson-head .lesson-cn{font-size:15px}.toggle{min-height:44px}.section{margin:30px 0 40px}.section-title h3{font-size:26px}
       .turn{grid-template-columns:36px minmax(0,1fr) 44px}.avatar{width:35px;height:35px}.speak-btn{width:44px;height:44px}.en{overflow-wrap:anywhere}
-      .story-top .listen-group{width:100%}.listen-btn{flex:1;min-height:44px}.story-en{font-size:19px}.sentence-list{padding-inline:12px}.sentence{grid-template-columns:31px minmax(0,1fr) 44px;padding:10px 8px;gap:8px}.sentence-no{width:29px;height:29px}
-      .upgrade-card h4{font-size:14px}.upgrade-lines{padding-inline:12px}.upgrade-line{grid-template-columns:61px minmax(0,1fr) 40px;gap:6px}.level{font-size:9px;padding-inline:5px}
+      .story-top .listen-group{width:100%}.listen-btn{flex:1;min-height:44px}.story-en{font-size:18px}.sentence-list{padding-inline:12px}.sentence{grid-template-columns:31px minmax(0,1fr) 44px;padding:10px 8px;gap:8px}.sentence-no{width:29px;height:29px}
+      .upgrade-card h4{font-size:14px}.upgrade-lines{padding-inline:12px}.upgrade-line{grid-template-columns:61px minmax(0,1fr) 44px;gap:6px}.level{font-size:9px;padding-inline:5px}
     }
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
@@ -184,16 +191,17 @@
           ]
         },
         upgrades:[
-          {title:"表达喜欢看电影",lines:[["基础","I like watching movies."],["更自然","I enjoy watching movies."],["更口语","I'm really into movies."]],note:"be into something = 对某件事很感兴趣，是很日常的口语表达。"},
-          {title:"表达看电影让我放松",lines:[["自然","Watching movies helps me relax."],["自然","Watching movies helps me feel relaxed."]],note:"relax 是动词；relaxed 是形容词。不要说 “helps me feel relax”。"},
-          {title:"表达还没尝试过徒步",lines:[["基础","I haven't tried hiking yet."],["更口语","I've never been hiking, but I'd love to try it."]],note:"I'd love to try it 比 I want to try it 更柔和、更像聊天。"},
-          {title:"表达很累，要睡觉",lines:[["基础","I'm really tired. I'm going to bed."],["更口语","I'm beat. I'm going to bed."],["更口语","I'm going to call it a night."]],note:"call it a night = 今天就到这里，准备休息或睡觉。"}
+          {title:"表达喜欢看电影",lines:[["基础","I like watching movies.","我喜欢看电影。"],["更自然","I enjoy watching movies.","我很享受看电影。"],["更口语","I'm really into movies.","我非常喜欢电影。"]],noteEn:"‘Be into something’ is a casual way to say you are very interested in it.",note:"be into something = 对某件事很感兴趣，是很日常的口语表达。"},
+          {title:"表达看电影让我放松",lines:[["自然","Watching movies helps me relax.","看电影让我放松。"],["自然","Watching movies helps me feel relaxed.","看电影让我感觉很放松。"]],noteEn:"Relax is a verb; relaxed is an adjective. Do not say ‘helps me feel relax.’",note:"relax 是动词；relaxed 是形容词。不要说 “helps me feel relax”。"},
+          {title:"表达还没尝试过徒步",lines:[["基础","I haven't tried hiking yet.","我还没有尝试过徒步。"],["更口语","I've never been hiking, but I'd love to try it.","我从来没有去徒步过，不过我很想试试。"]],noteEn:"‘I'd love to try it’ sounds softer and more conversational than ‘I want to try it.’",note:"I'd love to try it 比 I want to try it 更柔和、更像聊天。"},
+          {title:"表达很累，要睡觉",lines:[["基础","I'm really tired. I'm going to bed.","我真的很累，准备去睡觉了。"],["更口语","I'm beat. I'm going to bed.","我累坏了，准备去睡觉了。"],["更口语","I'm going to call it a night.","我准备收工休息了。"]],noteEn:"‘Call it a night’ means stopping for the day and getting some rest.",note:"call it a night = 今天就到这里，准备休息或睡觉。"}
         ],
         corrections:[
-          {wrong:"✕ I like watch movies.",right:"✓ I like watching movies.",note:"这里 like 后面接动作时，用动词的 -ing 形式。"},
-          {wrong:"✕ It help me relax.",right:"✓ It helps me relax.",note:"主语是 it，动词 help 要加 -s。"},
-          {wrong:"✕ It helps me feel relax.",right:"✓ It helps me feel relaxed.",note:"feel 后面用形容词 relaxed；也可以直接说 helps me relax。"}
+          {wrong:"✕ I like watch movies.",wrongCn:"✕ 我喜欢看电影。（错误表达）",right:"✓ I like watching movies.",rightCn:"✓ 我喜欢看电影。",noteEn:"Use the -ing form after like when the next word is an action.",note:"这里 like 后面接动作时，用动词的 -ing 形式。"},
+          {wrong:"✕ It help me relax.",wrongCn:"✕ 它能帮助我放松。（错误表达）",right:"✓ It helps me relax.",rightCn:"✓ 它能帮助我放松。",noteEn:"With it, the verb help takes -s.",note:"主语是 it，动词 help 要加 -s。"},
+          {wrong:"✕ It helps me feel relax.",wrongCn:"✕ 它让我感觉很放松。（错误表达）",right:"✓ It helps me feel relaxed.",rightCn:"✓ 它让我感觉很放松。",noteEn:"Use the adjective relaxed after feel, or say ‘helps me relax.’",note:"feel 后面用形容词 relaxed；也可以直接说 helps me relax。"}
         ],
+        reviewEn:"Without looking at the Chinese, introduce yourself for 45 seconds: where you are from, what you like, why you like it, and what you want to try.",
         review:"先不看中文，用 45 秒介绍自己：来自哪里、喜欢什么、为什么喜欢，以及想尝试的活动。"
       },
       {
@@ -220,18 +228,19 @@
           ]
         },
         upgrades:[
-          {title:"问“你在干什么”",lines:[["基础","What are you doing right now?"],["更口语","What are you up to?"]],note:"What are you up to? 既可以问现在在做什么，也可以问最近在忙什么。"},
-          {title:"表达正在喝可乐",lines:[["基础","I'm drinking a Coke."],["更自然","I'm having a Coke."],["更口语","I'm just relaxing with a Coke."]],note:"have a Coke 是日常聊天里很自然的说法。"},
-          {title:"表达简单吃点东西",lines:[["自然","I grab a light snack."],["更口语","I have a quick bite."]],note:"have a quick bite = 很快、随便吃一点。"},
-          {title:"表达点外卖",lines:[["自然","I just order in."],["自然","I just order some food."],["更口语","I usually get takeout."]],note:"order in 强调送到家；get takeout 强调不自己做饭，也可以是自己买回来。"},
-          {title:"表达正在做项目",lines:[["自然","I'm in the middle of a project."],["基础","I'm working on a project right now."],["更口语","I've got a project going on right now."]],note:"in the middle of 强调项目正在进行中。"},
-          {title:"表达夜猫子与睡懒觉",lines:[["自然","I'm definitely a night person."],["更口语","I'm a night owl."],["自然","I'm planning to sleep in tomorrow."]],note:"sleep in 是比平时晚起；“昨晚睡得晚”是 I went to bed late last night。"}
+          {title:"问“你在干什么”",lines:[["基础","What are you doing right now?","你现在在做什么？"],["更口语","What are you up to?","你现在在忙什么？"]],noteEn:"‘What are you up to?’ can ask about what someone is doing now or what they have been busy with lately.",note:"What are you up to? 既可以问现在在做什么，也可以问最近在忙什么。"},
+          {title:"表达正在喝可乐",lines:[["基础","I'm drinking a Coke.","我正在喝可乐。"],["更自然","I'm having a Coke.","我正在喝杯可乐。"],["更口语","I'm just relaxing with a Coke.","我正喝着可乐放松。"]],noteEn:"‘Have a Coke’ sounds very natural in everyday conversation.",note:"have a Coke 是日常聊天里很自然的说法。"},
+          {title:"表达简单吃点东西",lines:[["自然","I grab a light snack.","我简单吃点东西。"],["更口语","I have a quick bite.","我随便快速吃一口。"]],noteEn:"‘Have a quick bite’ means eating a small amount of food quickly.",note:"have a quick bite = 很快、随便吃一点。"},
+          {title:"表达点外卖",lines:[["自然","I just order in.","我就点外卖。"],["自然","I just order some food.","我就点些吃的。"],["更口语","I usually get takeout.","我通常买外卖吃。"]],noteEn:"‘Order in’ emphasizes delivery; ‘get takeout’ emphasizes not cooking and may include picking it up yourself.",note:"order in 强调送到家；get takeout 强调不自己做饭，也可以是自己买回来。"},
+          {title:"表达正在做项目",lines:[["自然","I'm in the middle of a project.","我正在做一个项目。"],["基础","I'm working on a project right now.","我现在正在做一个项目。"],["更口语","I've got a project going on right now.","我现在手头有个项目在做。"]],noteEn:"‘In the middle of’ emphasizes that the project is already in progress.",note:"in the middle of 强调项目正在进行中。"},
+          {title:"表达夜猫子与睡懒觉",lines:[["自然","I'm definitely a night person.","我肯定是个喜欢夜间活动的人。"],["更口语","I'm a night owl.","我是个夜猫子。"],["自然","I'm planning to sleep in tomorrow.","我打算明天睡个懒觉。"]],noteEn:"‘Sleep in’ means getting up later than usual. ‘I went to bed late last night’ means you fell asleep late.",note:"sleep in 是比平时晚起；“昨晚睡得晚”是 I went to bed late last night。"}
         ],
         corrections:[
-          {wrong:"✕ I'm go swimming.",right:"✓ I go swimming after work.",note:"日常习惯用一般现在时；现在准备去则说 I'm going swimming now。"},
-          {wrong:"✕ I usually too tired to cook.",right:"✓ I'm usually too tired to cook.",note:"tired 是形容词，前面不能漏掉 am。"},
-          {wrong:"△ I usually go swimming every day.",right:"✓ I go swimming every day. / I usually go swimming.",note:"usually 和 every day 意思有些重叠，选择一个会更干净。"}
+          {wrong:"✕ I'm go swimming.",wrongCn:"✕ 我下班后去游泳。（错误表达）",right:"✓ I go swimming after work.",rightCn:"✓ 我下班后去游泳。",noteEn:"Use the simple present for a habit. Say ‘I'm going swimming now’ for what you are about to do.",note:"日常习惯用一般现在时；现在准备去则说 I'm going swimming now。"},
+          {wrong:"✕ I usually too tired to cook.",wrongCn:"✕ 我通常累得不想做饭。（错误表达）",right:"✓ I'm usually too tired to cook.",rightCn:"✓ 我通常累得不想做饭。",noteEn:"Tired is an adjective, so it needs am before it.",note:"tired 是形容词，前面不能漏掉 am。"},
+          {wrong:"△ I usually go swimming every day.",wrongCn:"△ 我通常每天去游泳。（略显重复）",right:"✓ I go swimming every day. / I usually go swimming.",rightCn:"✓ 我每天去游泳。／我通常去游泳。",noteEn:"Usually and every day overlap in meaning, so choosing one sounds cleaner.",note:"usually 和 every day 意思有些重叠，选择一个会更干净。"}
         ],
+        reviewEn:"Answer in one connected paragraph: what you do after work, when you swim, what you do afterward, and what you eat when you are too tired to cook.",
         review:"用完整的一段话回答：你下班后做什么、几点游泳、游完做什么、太累时晚饭怎么办。"
       },
       {
@@ -258,20 +267,21 @@
           ]
         },
         upgrades:[
-          {title:"表达游了一千六百米",lines:[["标准","I swam sixteen hundred meters."],["更口语","I did 1.6K in the pool."]],note:"1.6K 读作 one point six K，运动者之间很常用。"},
-          {title:"表达去妈妈那里",lines:[["自然","I drove to my mom's place."],["自然","I drove to my mom's house."]],note:"my mom's place 更口语，重点是妈妈住的地方。"},
-          {title:"表达顺道去拿东西",lines:[["基础","I went to pick it up."],["更自然","I stopped by to pick it up."],["更口语","I swung by my mom's place to pick it up."]],note:"stop by / swing by 都表示短暂去一下；swing by 更随意。"},
-          {title:"表达正在回家",lines:[["自然","I'm on my way home."],["更口语","I'm heading home."]],note:"home 前通常不加 to：going home、heading home、on my way home。"},
-          {title:"表达进入车库与停车",lines:[["开进去","I'm pulling into the underground parking garage."],["正在停","I'm parking in the underground garage."],["已停好","I parked in the underground garage."]],note:"pull into、parking、parked 分别对应开进去、正在停、已经停好。"},
-          {title:"表达偶然碰见",lines:[["自然","I ran into two neighbors."],["更口语","I bumped into two neighbors."]],note:"这里不是撞到对方，而是“偶然碰见”。"},
-          {title:"表达当时不方便说话",lines:[["自然","It wasn't a good time to talk."],["更口语","I couldn't really talk then."],["正式一点","I wasn't able to talk at the time."]],note:"日常聊天用 couldn't really talk then 最直接。"}
+          {title:"表达游了一千六百米",lines:[["标准","I swam sixteen hundred meters.","我游了一千六百米。"],["更口语","I did 1.6K in the pool.","我在泳池里游了 1.6 公里。"]],noteEn:"Read 1.6K as ‘one point six K.’ It is common among people talking about exercise.",note:"1.6K 读作 one point six K，运动者之间很常用。"},
+          {title:"表达去妈妈那里",lines:[["自然","I drove to my mom's place.","我开车去了妈妈那里。"],["自然","I drove to my mom's house.","我开车去了妈妈家。"]],noteEn:"‘My mom's place’ is more conversational and focuses on where she lives.",note:"my mom's place 更口语，重点是妈妈住的地方。"},
+          {title:"表达顺道去拿东西",lines:[["基础","I went to pick it up.","我去把它拿回来。"],["更自然","I stopped by to pick it up.","我顺路过去拿了一下。"],["更口语","I swung by my mom's place to pick it up.","我顺道去了趟妈妈那里把它拿走。"]],noteEn:"‘Stop by’ and ‘swing by’ both mean making a short visit; ‘swing by’ is more casual.",note:"stop by / swing by 都表示短暂去一下；swing by 更随意。"},
+          {title:"表达正在回家",lines:[["自然","I'm on my way home.","我正在回家的路上。"],["更口语","I'm heading home.","我正准备回家。"]],noteEn:"Home usually has no to before it: going home, heading home, on my way home.",note:"home 前通常不加 to：going home、heading home、on my way home。"},
+          {title:"表达进入车库与停车",lines:[["开进去","I'm pulling into the underground parking garage.","我正在把车开进地下停车场。"],["正在停","I'm parking in the underground garage.","我正在地下停车场停车。"],["已停好","I parked in the underground garage.","我把车停在了地下停车场。"]],noteEn:"Pull into, parking, and parked describe driving in, parking now, and having finished parking.",note:"pull into、parking、parked 分别对应开进去、正在停、已经停好。"},
+          {title:"表达偶然碰见",lines:[["自然","I ran into two neighbors.","我偶然碰到了两个邻居。"],["更口语","I bumped into two neighbors.","我碰巧遇到了两个邻居。"]],noteEn:"Both phrases mean meeting someone by chance, not physically hitting them.",note:"这里不是撞到对方，而是“偶然碰见”。"},
+          {title:"表达当时不方便说话",lines:[["自然","It wasn't a good time to talk.","当时不太方便说话。"],["更口语","I couldn't really talk then.","我当时确实不方便说话。"],["正式一点","I wasn't able to talk at the time.","我当时没办法说话。"]],noteEn:"‘I couldn't really talk then’ is the most direct choice in everyday conversation.",note:"日常聊天用 couldn't really talk then 最直接。"}
         ],
         corrections:[
-          {wrong:"✕ some fruits",right:"✓ some fruit",note:"泛指一些水果时，fruit 通常作集合名词；强调不同种类时才常用 fruits。"},
-          {wrong:"✕ I went her place.",right:"✓ I went to her place.",note:"去某人的住处要加 to；但 home 特殊：I went home，不加 to。"},
-          {wrong:"✕ I parking in the garage.",right:"✓ I'm parking in the garage.",note:"现在进行时需要 am；地点前也要保留 in。"},
-          {wrong:"✕ grush / grudge",right:"✓ garage · G-A-R-A-G-E",note:"美式发音接近 guh-RAHZH，重音在后半部分。"}
+          {wrong:"✕ some fruits",wrongCn:"✕ 一些水果（一般场景中的错误表达）",right:"✓ some fruit",rightCn:"✓ 一些水果",noteEn:"Use fruit as a collective noun here. Use fruits when emphasizing different varieties.",note:"泛指一些水果时，fruit 通常作集合名词；强调不同种类时才常用 fruits。"},
+          {wrong:"✕ I went her place.",wrongCn:"✕ 我去了她那里。（错误表达）",right:"✓ I went to her place.",rightCn:"✓ 我去了她那里。",noteEn:"Use to before her place. Home is the exception: ‘I went home.’",note:"去某人的住处要加 to；但 home 特殊：I went home，不加 to。"},
+          {wrong:"✕ I parking in the garage.",wrongCn:"✕ 我正在车库里停车。（错误表达）",right:"✓ I'm parking in the garage.",rightCn:"✓ 我正在车库里停车。",noteEn:"The present continuous needs am, and the location still needs in.",note:"现在进行时需要 am；地点前也要保留 in。"},
+          {wrong:"✕ grush / grudge",wrongCn:"✕ garage 的错误发音",right:"✓ garage · G-A-R-A-G-E",rightCn:"✓ garage，拼写 G-A-R-A-G-E",noteEn:"In American English, it sounds close to ‘guh-RAHZH,’ with stress on the second part.",note:"美式发音接近 guh-RAHZH，重音在后半部分。"}
         ],
+        reviewEn:"Start with ‘After swimming’ and tell the whole story: your mom's place, the fruit, the garage, the elevator, and the neighbors.",
         review:"从“游完泳”开始，把去妈妈家、送水果、进车库、坐电梯、遇见邻居完整讲一遍。"
       }
     ];
@@ -283,7 +293,13 @@
 
     const esc = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
     const speechAttr = text => encodeURIComponent(text);
-    const speakButton = (text, mini=false) => `<button class="${mini?'mini-speak':'speak-btn'}" data-speak="${speechAttr(text)}" aria-label="朗读英文">🔊</button>`;
+    const speakButton = (text, mini=false) => `<button class="${mini?'mini-speak':'speak-btn'}" data-speak="${speechAttr(text)}" aria-label="播放英文发音">▶</button>`;
+    const levelEn={"基础":"Basic","自然":"Natural","更自然":"More natural","更口语":"Conversational","标准":"Standard","开进去":"Pulling in","正在停":"Parking","已停好":"Parked","正式一点":"More formal"};
+    const upgradeTitleEn={
+      "表达喜欢看电影":"Talking about movies","表达看电影让我放松":"Movies help me relax","表达还没尝试过徒步":"Hiking I haven't tried","表达很累，要睡觉":"Tired and going to bed",
+      "问“你在干什么”":"Asking what someone is doing","表达正在喝可乐":"Having a Coke","表达简单吃点东西":"Having a light snack","表达点外卖":"Ordering food","表达正在做项目":"Working on a project","表达夜猫子与睡懒觉":"Night owls and sleeping in",
+      "表达游了一千六百米":"Swimming sixteen hundred meters","表达去妈妈那里":"Going to my mom's place","表达顺道去拿东西":"Stopping by to pick something up","表达正在回家":"Heading home","表达进入车库与停车":"Pulling in and parking","表达偶然碰见":"Running into someone","表达当时不方便说话":"Not being able to talk"
+    };
 
     function renderPath(){
       pathEl.innerHTML = lessons.map((d,i)=>`<button class="day-tab ${i===current?'active':''}" data-day="${i}" aria-current="${i===current?'page':'false'}"><span class="day-num">${d.label}</span><span><b>${d.short}</b></span></button>`).join("");
@@ -310,7 +326,7 @@
         <section class="section" id="story">
           <div class="section-title"><div><span class="section-kicker">Your Connected Story</span><h3>Tell it like it happened.</h3><p>今日完整故事：把零散回答串成一段真正能说出口的话。</p></div></div>
           <article class="story-card">
-            <div class="story-top"><div><b>Natural Story</b><small>先听整段，再打开逐句跟读</small></div><div class="listen-group"><button class="listen-btn" data-speak="${speechAttr(d.story.en)}" data-rate="0.92">▶ 听整段</button><button class="listen-btn secondary" data-speak="${speechAttr(d.story.en)}" data-rate="0.78">🐢 慢速</button></div></div>
+            <div class="story-top"><div><b>Natural Story</b><small>先听整段，再打开逐句跟读</small></div><div class="listen-group"><button class="listen-btn" data-speak="${speechAttr(d.story.en)}" data-rate="0.92">▶ 听整段</button><button class="listen-btn secondary" data-speak="${speechAttr(d.story.en)}" data-rate="0.78">▶ 慢速</button></div></div>
             <div class="story-body"><p class="story-en">${esc(d.story.en)}</p><p class="story-cn">${esc(d.story.cn)}</p></div>
             <details class="shadowing"><summary>打开逐句跟读模式</summary><div class="sentence-list">${d.story.sentences.map((s,i)=>`<div class="sentence"><span class="sentence-no">${String(i+1).padStart(2,'0')}</span><div><div class="en">${esc(s[0])}</div><div class="cn">${esc(s[1])}</div></div>${speakButton(s[0])}</div>`).join("")}</div></details>
           </article>
@@ -318,15 +334,15 @@
 
         <section class="section" id="upgrades">
           <div class="section-title"><div><span class="section-kicker">Sound More Natural</span><h3>Upgrade your English.</h3><p>地道表达升级：紫色标签是更值得积累的口语版本，先选最顺口的一句。</p></div></div>
-          <div class="upgrade-grid">${d.upgrades.map(u=>`<article class="upgrade-card"><h4>${u.title}</h4><div class="upgrade-lines">${u.lines.map(line=>`<div class="upgrade-line"><span class="level ${line[0].includes('口语')?'spoken':line[0].includes('自然')?'natural':''}">${line[0]}</span><div class="en">${esc(line[1])}</div>${speakButton(line[1],true)}</div>`).join("")}</div><p class="upgrade-note">💡 ${u.note}</p></article>`).join("")}</div>
+          <div class="upgrade-grid">${d.upgrades.map(u=>`<article class="upgrade-card"><h4><span class="en">${esc(upgradeTitleEn[u.title]||u.title)}</span><span class="cn">${esc(u.title)}</span></h4><div class="upgrade-lines">${u.lines.map(line=>`<div class="upgrade-line"><span class="level ${line[0].includes('口语')?'spoken':line[0].includes('自然')?'natural':''}"><span class="en">${esc(levelEn[line[0]]||line[0])}</span><span class="cn">${esc(line[0])}</span></span><div class="upgrade-copy"><div class="en">${esc(line[1])}</div><div class="cn">${esc(line[2])}</div></div>${speakButton(line[1],true)}</div>`).join("")}</div><div class="upgrade-note"><div class="en">💡 ${esc(u.noteEn)}</div><div class="cn">${esc(u.note)}</div></div></article>`).join("")}</div>
         </section>
 
         <section class="section" id="corrections">
           <div class="section-title"><div><span class="section-kicker">Quick Fixes</span><h3>Remember the pattern.</h3><p>关键纠错：只记住“为什么”和正确整句，不需要死背语法术语。</p></div></div>
-          <div class="correction-list">${d.corrections.map(c=>`<article class="correction"><div class="pair"><div class="wrong en">${esc(c.wrong)}</div><div class="right en">${esc(c.right)}</div></div><p>${c.note}</p></article>`).join("")}</div>
+          <div class="correction-list">${d.corrections.map(c=>`<article class="correction"><div class="pair"><div class="wrong"><div class="en">${esc(c.wrong)}</div><div class="cn">${esc(c.wrongCn)}</div></div><div class="right"><div class="en">${esc(c.right)}</div><div class="cn">${esc(c.rightCn)}</div></div></div><div class="correction-note"><div class="en">${esc(c.noteEn)}</div><div class="cn">${esc(c.note)}</div></div></article>`).join("")}</div>
         </section>
 
-        <section class="section"><div class="review-card"><div><h4>🎯 今日复述任务</h4><p>${d.review}</p></div><button data-speak="${speechAttr(d.story.en)}" data-rate="0.82">再听一次</button></div></section>`;
+        <section class="section"><div class="review-card"><div><h4>🎯 Today's Retelling · 今日复述任务</h4><p class="en">${esc(d.reviewEn)}</p><p class="cn">${esc(d.review)}</p></div><button data-speak="${speechAttr(d.story.en)}" data-rate="0.82">▶ 再听一次</button></div></section>`;
       applyLanguages();
       if(shouldScroll) window.scrollTo({top:pathEl.offsetTop-12,behavior:"smooth"});
     }
@@ -336,7 +352,10 @@
       document.body.classList.toggle("hide-cn",!showCn);
     }
 
+    let fixedVoiceURI=localStorage.getItem("jason-fixed-voice")||"";
     function preferredDeviceVoice(voices){
+      const saved=voices.find(v=>v.voiceURI===fixedVoiceURI);
+      if(saved) return saved;
       const scored=voices.filter(v=>v.lang&&v.lang.toLowerCase().startsWith("en")).map(v=>{
         let score=v.lang.toLowerCase().startsWith("en-us")?100:30;
         if(/premium/i.test(v.name)) score+=1000;
@@ -349,14 +368,24 @@
         if(/google us english|microsoft.*online/i.test(v.name)) score+=120;
         return {voice:v,score};
       }).sort((a,b)=>b.score-a.score);
-      return scored[0]?.voice||null;
+      const selected=scored[0]?.voice||null;
+      if(selected){fixedVoiceURI=selected.voiceURI;localStorage.setItem("jason-fixed-voice",fixedVoiceURI)}
+      return selected;
     }
 
-    function speak(text,rate=.92){
+    function speak(text,rate=.92,allowVoiceWait=true){
       if(!("speechSynthesis" in window)){showToast("当前浏览器不支持朗读");return;}
       speechSynthesis.cancel();
-      const utterance=new SpeechSynthesisUtterance(text);
       const voices=speechSynthesis.getVoices();
+      if(!voices.length&&allowVoiceWait){
+        showToast("正在准备统一语音…");
+        let resumed=false;
+        const resume=()=>{if(resumed)return;resumed=true;speechSynthesis.removeEventListener("voiceschanged",resume);speak(text,rate,false)};
+        speechSynthesis.addEventListener("voiceschanged",resume);
+        setTimeout(resume,700);
+        return;
+      }
+      const utterance=new SpeechSynthesisUtterance(text);
       utterance.voice=preferredDeviceVoice(voices);
       utterance.lang="en-US";utterance.rate=rate;utterance.pitch=1;
       utterance.onstart=()=>showToast(rate<.8?"慢速朗读中…":"正在朗读…");
