@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#58cc02">
-  <meta name="description" content="Jason's English Journal — 三天真实生活口语练习">
+  <meta name="description" content="Jason's English Journal — 四天真实生活口语练习">
   <title>Jason's English Journal</title>
   <style>
     :root{
@@ -24,7 +24,7 @@
       font-family:var(--font-en);
       -webkit-font-smoothing:antialiased}
     button{font-family:var(--font-display)}
-    .cn,.lesson-cn,.hero p,.section-title p,.upgrade-note,.correction p,.review-card p,footer{
+    .cn,.lesson-cn,.story-cn,.hero p,.section-title p,.upgrade-note,.correction p,.review-card p,footer{
       font-family:var(--font-cn)}
     h1,h2,h3,h4,.brand,.streak,.eyebrow,.day-tab,.lesson-kicker,.section-kicker,.speaker,.level{font-family:var(--font-display)}
     button:focus-visible,summary:focus-visible{outline:4px solid rgba(28,176,246,.25);outline-offset:3px}
@@ -45,7 +45,7 @@
     .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
     .meta-pill{background:white;border:2px solid var(--line);border-radius:999px;padding:8px 13px;font-size:13px;font-weight:800}
 
-    .day-path{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+    .day-path{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
     .day-tab{min-height:84px;background:var(--paper);border:2px solid var(--line);border-bottom-width:5px;border-radius:18px;padding:16px 20px;
       color:var(--ink);cursor:pointer;text-align:left;display:block;transition:.18s transform,.18s border-color,.18s background}
     .day-tab:hover{transform:translateY(-2px)}
@@ -130,7 +130,7 @@
     .voice-toast.show{transform:translate(-50%,0);opacity:1}
     @media(max-width:760px){
       .app{padding:15px 13px 60px}.topbar{padding:0 2px}.brand small{display:none}.hero{padding:28px 22px 25px;border-radius:24px}.hero:after{font-size:62px}
-      .day-path{gap:8px}.day-tab{min-height:78px;padding:10px 5px;text-align:center}.day-num{width:auto;height:auto;margin-bottom:6px}.day-tab span:last-child{display:block}.day-tab span:last-child b{font-size:12px}.day-tab span:last-child small{display:none}
+      .day-path{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.day-tab{min-height:78px;padding:10px 5px;text-align:center}.day-num{width:auto;height:auto;margin-bottom:6px}.day-tab span:last-child{display:block}.day-tab span:last-child b{font-size:12px}.day-tab span:last-child small{display:none}
       .lesson-head{align-items:flex-start;flex-direction:column}.lang-controls{justify-content:flex-start}
       .exchange{padding:15px 13px}.turn{grid-template-columns:38px 1fr 40px;gap:9px}.avatar{width:37px;height:37px}.en{font-size:16px}.cn{font-size:14px}
       .story-top{align-items:flex-start;flex-direction:column;padding:17px}.story-body{padding:22px 19px}.story-en{font-size:18.5px;line-height:1.72}.story-cn{font-size:14.5px;line-height:1.8}
@@ -151,7 +151,7 @@
   <main class="app">
     <header class="topbar">
       <div class="brand"><div class="brand-mark">🗣️</div><div>Jason's English Journal<small>Speak · Repeat · Remember</small></div></div>
-      <div class="streak">🔥 3 DAYS</div>
+      <div class="streak">🔥 4 DAYS</div>
     </header>
 
     <section class="hero">
@@ -283,6 +283,54 @@
         ],
         reviewEn:"Start with ‘After swimming’ and tell the whole story: your mom's place, the fruit, the garage, the elevator, and the neighbors.",
         review:"从“游完泳”开始，把去妈妈家、送水果、进车库、坐电梯、遇见邻居完整讲一遍。"
+      },
+      {
+        label:"DAY 04", short:"A full day", titleEn:"A full day on the go.", title:"准备上班、早餐、银行、游泳与一天收尾",
+        qa:[
+          ["Good morning, Jason! What are you up to this morning?","早上好，Jason！你今天早上在忙什么？","I'm getting ready for work, and then I'm heading out.","我正在准备上班，然后就要出门了。"],
+          ["Are you on your way to work now?","你现在已经在去上班的路上了吗？","Yes, I'm on my way to work. I'm driving now.","是的，我正在去上班的路上。我现在正在开车。"],
+          ["Drive safe. What are you going to have for breakfast?","开车注意安全。你早餐准备吃什么？","I'm going to have noodles for breakfast.","我早餐准备吃面。"],
+          ["Have you arrived at work?","你到公司了吗？","Yes. I'm parking in the underground garage.","到了。我正在地下停车场停车。"],
+          ["What are you going to have for lunch?","你午饭准备吃什么？","I'm going to have rice for lunch.","我午饭准备吃米饭。"],
+          ["Do you have anything else to do today?","你今天还有其他事情要办吗？","I'm going to the bank. I need to take care of something there.","我要去一趟银行。我需要在那里办点事情。"],
+          ["What are you going to do after work?","你下班后准备做什么？","I'm going swimming. I'll probably swim for about an hour.","我准备去游泳，大概会游一个小时。"],
+          ["What did you do after swimming?","游完泳后你做了什么？","I dropped my mom off at home.","我把妈妈送回了家。"],
+          ["How do you feel now?","你现在感觉怎么样？","I'm beat. I'm gonna take a hot shower and crash.","我累坏了。我准备洗个热水澡，然后倒头就睡。"]
+        ],
+        story:{
+          en:"This morning, I got ready for work and headed out. On my way to work, I stopped for noodles for breakfast. When I arrived, I parked in the underground garage. At lunchtime, I had rice. Later, I went to the bank to take care of something, and then I went back to work. After work, I went swimming for about an hour. After that, I dropped my mom off at home. By the time I got home, I was beat, so I took a hot shower and crashed.",
+          cn:"今天早上，我准备好上班后出了门。去上班的路上，我停下来吃了碗面当早餐。到公司以后，我把车停在地下停车场。午饭我吃了米饭。后来，我去银行办了点事情，然后又回去上班。下班后，我去游了大约一个小时的泳。之后，我把妈妈送回了家。等我到家时已经累坏了，所以洗了个热水澡，然后倒头就睡了。",
+          sentences:[
+            ["This morning, I got ready for work and headed out.","今天早上，我准备好上班后出了门。"],
+            ["On my way to work, I stopped for noodles for breakfast.","去上班的路上，我停下来吃了碗面当早餐。"],
+            ["When I arrived, I parked in the underground garage.","到公司以后，我把车停在地下停车场。"],
+            ["At lunchtime, I had rice.","午饭我吃了米饭。"],
+            ["Later, I went to the bank to take care of something, and then I went back to work.","后来，我去银行办了点事情，然后又回去上班。"],
+            ["After work, I went swimming for about an hour.","下班后，我去游了大约一个小时的泳。"],
+            ["After that, I dropped my mom off at home.","之后，我把妈妈送回了家。"],
+            ["By the time I got home, I was beat, so I took a hot shower and crashed.","等我到家时已经累坏了，所以洗了个热水澡，然后倒头就睡了。"]
+          ]
+        },
+        upgrades:[
+          {title:"表达准备出门上班",lines:[["基础","I'm getting ready for work.","我正在准备上班。"],["自然","I'm getting ready for work, then I'm heading out.","我正在准备上班，然后就要出门了。"],["更口语","I'm about to head out for work.","我马上要出门上班了。"]],noteEn:"‘Head out’ means leaving or setting off. It is different from ‘hang out,’ which means spending time casually.",note:"head out 表示出门、动身；hang out 才是闲逛或和朋友待在一起。"},
+          {title:"表达正在上班路上",lines:[["自然","I'm on my way to work.","我正在去上班的路上。"],["更口语","I'm heading to work.","我正去上班。"],["自然","I'm driving to work now.","我现在正开车去上班。"]],noteEn:"Use ‘to work’ for direction: on my way to work, not on my way for work.",note:"表示方向要用 to work：on my way to work，不是 on my way for work。"},
+          {title:"表达开车注意安全",lines:[["标准","Drive safely.","开车注意安全。"],["更口语","Drive safe.","开车小心。"],["自然","Have a safe drive.","祝你一路平安。"]],noteEn:"‘Drive safe’ is very common in casual American English. ‘Drive safely’ is the grammatically formal version.",note:"Drive safe 在美式口语中很常见；Drive safely 是语法上更正式的版本。"},
+          {title:"表达早餐吃面",lines:[["自然","I'm going to have noodles for breakfast.","我早餐准备吃面。"],["更自然","I'm having noodles for breakfast.","我早餐吃面。"],["更口语","I'm grabbing some noodles for breakfast.","我准备快速吃碗面当早餐。"]],noteEn:"‘Have noodles’ best matches a planned meal. ‘Grab some noodles’ sounds quicker and more casual.",note:"计划好好吃一顿时 have noodles 最贴切；grab some noodles 更像快速去吃一点。"},
+          {title:"表达去银行办事",lines:[["自然","I need to take care of something at the bank.","我需要去银行办点事情。"],["更自然","I have something to take care of at the bank.","我在银行有点事情要办。"],["更口语","I need to run an errand at the bank.","我得去银行办个事。"]],noteEn:"‘Take care of something’ is useful when you do not need to explain the exact business.",note:"不需要说明具体办什么事情时，take care of something 很实用。"},
+          {title:"表达游泳时长",lines:[["自然","I'll probably swim for about an hour.","我大概会游一个小时。"],["自然","I'm planning to swim for about an hour.","我计划游大约一个小时。"],["更口语","I'll probably get in about an hour of swimming.","我大概能游上一个小时。"]],noteEn:"Use ‘for’ before a duration: for an hour, for half an hour.",note:"表示持续时长要用 for：for an hour、for half an hour。"},
+          {title:"表达送妈妈回家",lines:[["自然","I dropped my mom off at home.","我把妈妈送回了家。"],["更自然","I took my mom home.","我送妈妈回家了。"]],noteEn:"‘Drop someone off’ means taking someone somewhere and leaving them at that destination.",note:"drop someone off 表示把某人送到目的地后离开。"},
+          {title:"表达累坏了准备休息",lines:[["更口语","I'm beat.","我累坏了。"],["更口语","I'm wiped out.","我筋疲力尽了。"],["更口语","I'm gonna take a hot shower and crash.","我准备洗个热水澡，然后倒头就睡。"]],noteEn:"‘Crash’ means falling asleep quickly because you are very tired. It is very casual.",note:"crash 在这里表示累得很快睡着，是非常口语的表达。"}
+        ],
+        corrections:[
+          {wrong:"✕ I'm getting to ready to work.",wrongCn:"✕ 我正在准备上班。（错误表达）",right:"✓ I'm getting ready for work.",rightCn:"✓ 我正在准备上班。",noteEn:"Use the fixed phrase ‘get ready for.’ There is no to before ready.",note:"固定搭配是 get ready for，ready 前不加 to。"},
+          {wrong:"✕ I'm on my way for work.",wrongCn:"✕ 我正在去上班的路上。（错误表达）",right:"✓ I'm on my way to work.",rightCn:"✓ 我正在去上班的路上。",noteEn:"Use to for the destination or direction.",note:"表示目的地或方向时使用 to。"},
+          {wrong:"✕ I'm going to swimming.",wrongCn:"✕ 我正准备去游泳。（错误表达）",right:"✓ I'm going swimming.",rightCn:"✓ 我正准备去游泳。",noteEn:"With an activity after go, use the -ing form without to: go swimming.",note:"go 后接活动时直接用 -ing，不加 to：go swimming。"},
+          {wrong:"✕ I probably swim for about an hour.",wrongCn:"✕ 我大概会游一个小时。（缺少将来时）",right:"✓ I'll probably swim for about an hour.",rightCn:"✓ 我大概会游一个小时。",noteEn:"For a future plan or prediction, add will: I'll probably swim.",note:"表达之后的计划或预测时加 will：I'll probably swim。"},
+          {wrong:"✕ I gonna take a hot shower.",wrongCn:"✕ 我准备洗个热水澡。（错误表达）",right:"✓ I'm gonna take a hot shower.",rightCn:"✓ 我准备洗个热水澡。",noteEn:"Gonna still needs the verb be: I am gonna, shortened to I'm gonna.",note:"gonna 前仍然需要 be 动词：I am gonna，缩写为 I'm gonna。"},
+          {wrong:"✕ I dropped my mom at home.",wrongCn:"✕ 我把妈妈送回了家。（不够完整）",right:"✓ I dropped my mom off at home.",rightCn:"✓ 我把妈妈送回了家。",noteEn:"Use the phrasal verb ‘drop someone off’ for giving someone a ride to a place.",note:"开车把某人送到某地要用短语 drop someone off。"}
+        ],
+        reviewEn:"Retell your day in order: getting ready, breakfast, the garage, lunch, the bank, swimming, taking your mom home, and your final line before bed.",
+        review:"按时间顺序复述今天：准备出门、早餐、地下车库、午饭、银行、游泳、送妈妈回家，以及睡前的最后一句。"
       }
     ];
 
@@ -298,7 +346,8 @@
     const upgradeTitleEn={
       "表达喜欢看电影":"Talking about movies","表达看电影让我放松":"Movies help me relax","表达还没尝试过徒步":"Hiking I haven't tried","表达很累，要睡觉":"Tired and going to bed",
       "问“你在干什么”":"Asking what someone is doing","表达正在喝可乐":"Having a Coke","表达简单吃点东西":"Having a light snack","表达点外卖":"Ordering food","表达正在做项目":"Working on a project","表达夜猫子与睡懒觉":"Night owls and sleeping in",
-      "表达游了一千六百米":"Swimming sixteen hundred meters","表达去妈妈那里":"Going to my mom's place","表达顺道去拿东西":"Stopping by to pick something up","表达正在回家":"Heading home","表达进入车库与停车":"Pulling in and parking","表达偶然碰见":"Running into someone","表达当时不方便说话":"Not being able to talk"
+      "表达游了一千六百米":"Swimming sixteen hundred meters","表达去妈妈那里":"Going to my mom's place","表达顺道去拿东西":"Stopping by to pick something up","表达正在回家":"Heading home","表达进入车库与停车":"Pulling in and parking","表达偶然碰见":"Running into someone","表达当时不方便说话":"Not being able to talk",
+      "表达准备出门上班":"Getting ready and heading out","表达正在上班路上":"On the way to work","表达开车注意安全":"Wishing someone a safe drive","表达早餐吃面":"Having noodles for breakfast","表达去银行办事":"Taking care of something at the bank","表达游泳时长":"Talking about swimming time","表达送妈妈回家":"Taking my mom home","表达累坏了准备休息":"Feeling exhausted and going to bed"
     };
 
     function renderPath(){
