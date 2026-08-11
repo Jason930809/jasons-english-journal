@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#58cc02">
-  <meta name="description" content="Jason's English Journal — 十一天真实生活口语练习">
+  <meta name="description" content="Jason's English Journal — 按年月日归档的十二天真实生活口语练习">
   <title>Jason's English Journal</title>
   <style>
     :root{
@@ -45,7 +45,29 @@
     .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
     .meta-pill{background:white;border:2px solid var(--line);border-radius:999px;padding:8px 13px;font-size:13px;font-weight:800}
 
-    .day-path{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:24px}
+    .day-path{margin-bottom:24px}
+
+    .archive-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:12px;padding:0 3px}
+    .archive-heading strong{display:block;font-size:20px;letter-spacing:-.03em;margin-top:5px}
+    .archive-heading small{color:var(--muted);font-family:var(--font-cn);font-weight:700}
+    .archive-kicker{display:inline-block;color:var(--green-dark);font-size:11px;font-weight:1000;letter-spacing:.12em}
+    .date-archive{display:grid;gap:11px}
+    .year-group,.month-group{background:var(--paper);border:2px solid var(--line);border-radius:20px;box-shadow:0 4px 0 #e4ece5;overflow:hidden}
+    .month-group{border-radius:16px;box-shadow:0 3px 0 #e6ece7}
+    .year-group>summary,.month-group>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;font-family:var(--font-display);font-weight:1000}
+    .year-group>summary::-webkit-details-marker,.month-group>summary::-webkit-details-marker{display:none}
+    .year-group>summary:hover,.month-group>summary:hover{background:var(--green-soft)}
+    .year-group>summary b{font-size:22px}.month-group>summary b{font-size:17px}
+    .year-group summary small,.month-group summary small{display:block;color:var(--muted);font-family:var(--font-cn);font-size:12px;margin-top:3px}
+    .archive-chevron{color:var(--green-dark);font-size:22px;line-height:1;transition:transform .18s}
+    details[open]>summary .archive-chevron{transform:rotate(180deg)}
+    .month-list{display:grid;gap:10px;padding:0 12px 13px}
+    .month-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;padding:0 12px 13px}
+    .month-days .day-tab{min-height:76px;padding:13px 15px}
+    .month-days .day-tab .day-num{font-size:11px;margin-bottom:6px}
+    .month-days .day-tab b{font-size:15px}
+    .month-group:not([open]){box-shadow:0 3px 0 #e6ece7}
+
     .day-tab{min-height:84px;background:var(--paper);border:2px solid var(--line);border-bottom-width:5px;border-radius:18px;padding:16px 20px;
       color:var(--ink);cursor:pointer;text-align:left;display:block;transition:.18s transform,.18s border-color,.18s background}
     .day-tab:hover{transform:translateY(-2px)}
@@ -96,6 +118,18 @@
     .sentence{display:grid;grid-template-columns:36px 1fr auto;align-items:start;gap:10px;background:white;border:2px solid #dfe7db;border-radius:15px;padding:12px}
     .sentence-no{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:var(--green-soft);color:var(--green-dark);font-weight:1000;font-size:12px}
     .sentence .en{font-size:15.5px}.sentence .cn{font-size:13.5px}
+
+
+    .vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .vocab-card{background:#fffdf7;border:2px solid #b9dcf1;border-radius:20px;box-shadow:0 5px 0 #d9eaf2;padding:16px 17px}
+    .vocab-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .vocab-word{margin:0;font-size:22px;line-height:1.15;letter-spacing:-.03em}
+    .vocab-word .cn{font-size:13px;color:var(--muted);font-weight:700;margin-top:5px}
+    .word-kind{display:inline-flex;align-items:center;border-radius:999px;padding:5px 8px;background:var(--blue-soft);color:var(--blue-dark);font-family:var(--font-display);font-size:10px;font-weight:1000;white-space:nowrap}
+    .vocab-example{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px dashed #cfe0e8}
+    .vocab-example .en{font-size:14.5px;line-height:1.5}
+    .vocab-example .cn{font-size:12.5px;line-height:1.5}
+    .vocab-card .mini-speak{border-color:#b9ddf1;background:var(--blue-soft);color:var(--blue-dark)}
 
     .upgrade-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .upgrade-card{background:white;border:2px solid #ded4fa;border-radius:20px;box-shadow:0 5px 0 #e5dffa;overflow:hidden}
@@ -152,7 +186,7 @@
   <main class="app">
     <header class="topbar">
       <div class="brand"><div class="brand-mark">🗣️</div><div>Jason's English Journal<small>Speak · Repeat · Remember</small></div></div>
-      <div class="streak">🔥 11 DAYS</div>
+      <div class="streak">🔥 12 DAYS</div>
     </header>
 
     <section class="hero">
@@ -2367,8 +2401,477 @@
             ],
             "reviewEn": "Retell the day in this order: going to the gas station, using the automatic car wash, topping up the fuel card with 2,000 yuan, filling up the tank, driving home, pulling into the parking garage, using your assigned spot, backing in, and shutting the car off and locking up.",
             "review": "按这个顺序复述：去加油站、使用自动洗车、给加油卡充值两千元、把油箱加满、开车回家、进入停车场、使用固定车位、倒车入位、熄火并锁车。"
+      },
+      {
+            "label": "DAY 12",
+            "short": "Pool, errands & home",
+            "titleEn": "Three kilometers, a detour, and heading home.",
+            "title": "去游泳、去妈妈家、眼镜折返与回家",
+            "qa": [
+                  [
+                        "Where are you going?",
+                        "你要去哪里？",
+                        "I'm on my way to the pool.",
+                        "我正在去游泳馆的路上。"
+                  ],
+                  [
+                        "How far away is the pool?",
+                        "游泳馆有多远？",
+                        "It's about five hundred meters away.",
+                        "大约五百米远。"
+                  ],
+                  [
+                        "How far are you planning to swim?",
+                        "你计划游多远？",
+                        "I'm planning to swim about two kilometers.",
+                        "我计划游大约两公里。"
+                  ],
+                  [
+                        "How far did you actually swim?",
+                        "你实际游了多远？",
+                        "I swam three kilometers.",
+                        "我游了三公里。"
+                  ],
+                  [
+                        "How do you feel after swimming?",
+                        "游完泳后感觉怎么样？",
+                        "I'm exhausted, but it feels great.",
+                        "我筋疲力尽，但感觉特别棒。"
+                  ],
+                  [
+                        "Where are you driving now?",
+                        "你现在开车去哪里？",
+                        "I'm driving to my mom's place.",
+                        "我正在开车去我妈妈家。"
+                  ],
+                  [
+                        "How long is the drive?",
+                        "车程要多久？",
+                        "It's about a fifteen-minute drive.",
+                        "大约十五分钟车程。"
+                  ],
+                  [
+                        "How is the traffic?",
+                        "路上交通怎么样？",
+                        "Traffic's light. I should be there in about ten minutes.",
+                        "路上不堵，我大概十分钟后到。"
+                  ],
+                  [
+                        "What can you say when you're almost there?",
+                        "快到了可以怎么说？",
+                        "I'll be there soon.",
+                        "我很快就到了。"
+                  ],
+                  [
+                        "How was your day today?",
+                        "你今天过得怎么样？",
+                        "Pretty good. I went swimming and swam three kilometers. I'm exhausted, but it feels great.",
+                        "挺好的。我去游泳了，游了三公里。虽然筋疲力尽，但感觉特别棒。"
+                  ],
+                  [
+                        "Why did you go back to your mom's?",
+                        "你为什么又回妈妈家？",
+                        "I had to turn back to my mom's because I left my glasses there.",
+                        "我不得不折返回妈妈家，因为我把眼镜落在那里了。"
+                  ],
+                  [
+                        "Where are you going now?",
+                        "你现在要去哪里？",
+                        "I'm heading home now.",
+                        "我现在正准备回家。"
+                  ],
+                  [
+                        "What can you say at a red light?",
+                        "等红灯时可以怎么说？",
+                        "I'm at a red light. Should be home soon.",
+                        "我在等红灯，应该很快到家。"
+                  ],
+                  [
+                        "How far are you from home?",
+                        "你离家还有多远？",
+                        "I'm about five minutes from home.",
+                        "我离家大约五分钟。"
+                  ],
+                  [
+                        "What happened to you?",
+                        "你怎么了？",
+                        "I just got a mosquito bite.",
+                        "我刚被蚊子叮了一下。"
+                  ],
+                  [
+                        "What do you say after parking?",
+                        "停好车后可以怎么说？",
+                        "Car's parked. I'm heading up in the elevator.",
+                        "车停好了，我正坐电梯上楼。"
+                  ]
+            ],
+            "story": {
+                  "en": "I'm on my way to the pool. It's about five hundred meters away, and I'm planning to swim about two kilometers. I ended up swimming three kilometers, so I'm exhausted, but it feels great. After that, I'm driving to my mom's place. It's about a fifteen-minute drive, and traffic's light, so I should be there in about ten minutes. I'll be there soon. Later, I had to turn back to my mom's because I left my glasses there. Now I'm heading home. I'm at a red light, so I should be home soon. I'm about five minutes from home. I just got a mosquito bite, but my car is parked now, and I'm heading up in the elevator.",
+                  "cn": "我正在去游泳馆的路上。游泳馆大约五百米远，我计划游两公里。最后我实际游了三公里，所以虽然筋疲力尽，但感觉特别棒。之后，我开车去妈妈家。车程大约十五分钟，路上不堵，所以我大概十分钟后到。我很快就到了。后来，我因为把眼镜落在妈妈家，不得不折返回去。现在我正在回家的路上。我正在等红灯，应该很快到家。我离家大约五分钟。刚才我被蚊子叮了一下，不过现在车已经停好，我正坐电梯上楼。",
+                  "sentences": [
+                        [
+                              "I'm on my way to the pool.",
+                              "我正在去游泳馆的路上。"
+                        ],
+                        [
+                              "It's about five hundred meters away.",
+                              "游泳馆大约五百米远。"
+                        ],
+                        [
+                              "I'm planning to swim about two kilometers.",
+                              "我计划游大约两公里。"
+                        ],
+                        [
+                              "I ended up swimming three kilometers.",
+                              "最后我实际游了三公里。"
+                        ],
+                        [
+                              "I'm exhausted, but it feels great.",
+                              "我筋疲力尽，但感觉特别棒。"
+                        ],
+                        [
+                              "I'm driving to my mom's place.",
+                              "我正在开车去妈妈家。"
+                        ],
+                        [
+                              "It's about a fifteen-minute drive.",
+                              "大约十五分钟车程。"
+                        ],
+                        [
+                              "Traffic's light, so I should be there in about ten minutes.",
+                              "路上不堵，所以我大概十分钟后到。"
+                        ],
+                        [
+                              "I'll be there soon.",
+                              "我很快就到了。"
+                        ],
+                        [
+                              "I had to turn back to my mom's because I left my glasses there.",
+                              "我不得不折返回妈妈家，因为我把眼镜落在那里了。"
+                        ],
+                        [
+                              "Now I'm heading home.",
+                              "现在我正在回家的路上。"
+                        ],
+                        [
+                              "I'm at a red light, so I should be home soon.",
+                              "我在等红灯，应该很快到家。"
+                        ],
+                        [
+                              "I'm about five minutes from home.",
+                              "我离家大约五分钟。"
+                        ],
+                        [
+                              "I just got a mosquito bite.",
+                              "我刚被蚊子叮了一下。"
+                        ],
+                        [
+                              "Car's parked. I'm heading up in the elevator.",
+                              "车停好了，我正坐电梯上楼。"
+                        ]
+                  ]
+            },
+            "upgrades": [
+                  {
+                        "title": "表达去游泳馆",
+                        "lines": [
+                              [
+                                    "基础",
+                                    "I'm on my way to the pool.",
+                                    "我正在去游泳馆的路上。"
+                              ],
+                              [
+                                    "更口语",
+                                    "I'm heading to the pool.",
+                                    "我正前往游泳馆。"
+                              ]
+                        ],
+                        "noteEn": "On my way emphasizes that you are already traveling; heading to is a compact conversational alternative.",
+                        "note": "on my way 强调已经在路上；heading to 是更简洁的口语说法。"
+                  },
+                  {
+                        "title": "表达泳池距离",
+                        "lines": [
+                              [
+                                    "首选",
+                                    "It's about five hundred meters away.",
+                                    "大约五百米远。"
+                              ],
+                              [
+                                    "更口语",
+                                    "The pool is only about five hundred meters away.",
+                                    "游泳馆就大约五百米远。"
+                              ]
+                        ],
+                        "noteEn": "Use away when giving the distance from your current location to a place.",
+                        "note": "说明当前位置到某地的距离时，用 away 很自然。"
+                  },
+                  {
+                        "title": "表达计划游泳距离",
+                        "lines": [
+                              [
+                                    "标准",
+                                    "I'm planning to swim about two kilometers.",
+                                    "我计划游大约两公里。"
+                              ],
+                              [
+                                    "更口语",
+                                    "I'm aiming for about two kilometers today.",
+                                    "我今天目标是游大约两公里。"
+                              ]
+                        ],
+                        "noteEn": "A distance follows swim directly. Do not add for before the distance.",
+                        "note": "距离直接放在 swim 后面，不要在前面加 for。"
+                  },
+                  {
+                        "title": "表达实际游泳距离",
+                        "lines": [
+                              [
+                                    "首选",
+                                    "I swam three kilometers.",
+                                    "我游了三公里。"
+                              ],
+                              [
+                                    "更口语",
+                                    "I ended up swimming three kilometers.",
+                                    "最后我游了三公里。"
+                              ]
+                        ],
+                        "noteEn": "Ended up shows that the final result was different from or more than the original plan.",
+                        "note": "ended up 表示最后的实际结果和原计划有变化。"
+                  },
+                  {
+                        "title": "表达筋疲力尽但很开心",
+                        "lines": [
+                              [
+                                    "自然",
+                                    "I'm exhausted, but it feels great.",
+                                    "我筋疲力尽，但感觉特别棒。"
+                              ],
+                              [
+                                    "更口语",
+                                    "I'm wiped out, but I feel great.",
+                                    "我累坏了，但感觉特别好。"
+                              ]
+                        ],
+                        "noteEn": "Exhausted is stronger than tired and fits a hard workout.",
+                        "note": "exhausted 比 tired 程度更强，适合描述高强度运动后的状态。"
+                  },
+                  {
+                        "title": "表达十五分钟车程",
+                        "lines": [
+                              [
+                                    "首选",
+                                    "It's about a fifteen-minute drive.",
+                                    "大约十五分钟车程。"
+                              ],
+                              [
+                                    "更简短",
+                                    "It's a fifteen-minute drive.",
+                                    "这是十五分钟车程。"
+                              ]
+                        ],
+                        "noteEn": "In a compound adjective, fifteen-minute stays singular and connects to drive.",
+                        "note": "复合形容词中用 fifteen-minute 单数，并与 drive 连在一起。"
+                  },
+                  {
+                        "title": "表达路上很顺",
+                        "lines": [
+                              [
+                                    "自然",
+                                    "Traffic's light.",
+                                    "路上不堵。"
+                              ],
+                              [
+                                    "首选",
+                                    "I should be there in about ten minutes.",
+                                    "我大概十分钟后到。"
+                              ],
+                              [
+                                    "更口语",
+                                    "Should be there in ten.",
+                                    "应该十分钟到。"
+                              ]
+                        ],
+                        "noteEn": "Should be there is a common shortened message-style sentence when the subject is obvious.",
+                        "note": "主语很明确时，Should be there 是很常见的短信式省略表达。"
+                  },
+                  {
+                        "title": "表达回家",
+                        "lines": [
+                              [
+                                    "完整",
+                                    "I'm heading home now.",
+                                    "我现在正准备回家。"
+                              ],
+                              [
+                                    "更口语",
+                                    "Just left my mom's, heading home now.",
+                                    "刚离开妈妈家，现在回家。"
+                              ]
+                        ],
+                        "noteEn": "Heading home emphasizes that you are already on the way. Home does not need to after heading.",
+                        "note": "heading home 强调已经在路上；heading 后面的 home 前不加 to。"
+                  },
+                  {
+                        "title": "表达折返回去",
+                        "lines": [
+                              [
+                                    "自然",
+                                    "I had to turn back to my mom's.",
+                                    "我不得不折返回妈妈家。"
+                              ],
+                              [
+                                    "首选",
+                                    "I had to turn back to my mom's because I left my glasses there.",
+                                    "我因为把眼镜落在那里，不得不折返回妈妈家。"
+                              ]
+                        ],
+                        "noteEn": "Had to is followed by the base verb turn, and turn back means return in the direction you came from.",
+                        "note": "had to 后面接动词原形 turn；turn back 表示折返回去。"
+                  },
+                  {
+                        "title": "表达离家还有几分钟",
+                        "lines": [
+                              [
+                                    "首选",
+                                    "I'm about five minutes from home.",
+                                    "我离家大约五分钟。"
+                              ],
+                              [
+                                    "更简短",
+                                    "About two minutes from home.",
+                                    "离家大约两分钟。"
+                              ]
+                        ],
+                        "noteEn": "Use from home for the remaining distance or time to your destination.",
+                        "note": "表示距离家还有多远或多久，用 from home。"
+                  },
+                  {
+                        "title": "表达被蚊子叮",
+                        "lines": [
+                              [
+                                    "首选",
+                                    "I just got a mosquito bite.",
+                                    "我刚被蚊子叮了一下。"
+                              ],
+                              [
+                                    "更具体",
+                                    "I got bitten by a mosquito just now.",
+                                    "我刚才被蚊子咬了。"
+                              ]
+                        ],
+                        "noteEn": "Mosquito bite is the compact everyday noun phrase.",
+                        "note": "mosquito bite 是日常最简洁的名词表达。"
+                  },
+                  {
+                        "title": "表达停车后坐电梯",
+                        "lines": [
+                              [
+                                    "完整",
+                                    "I've parked the car, and now I'm taking the elevator up.",
+                                    "我已经停车了，现在正坐电梯上楼。"
+                              ],
+                              [
+                                    "更口语",
+                                    "Car's parked. I'm heading up in the elevator.",
+                                    "车停好了，我正坐电梯上楼。"
+                              ]
+                        ],
+                        "noteEn": "Car's parked is a natural short form of The car is parked. Heading up puts the direction before the elevator detail.",
+                        "note": "Car's parked 是 The car is parked 的自然口语缩写；heading up 先说方向，再补充电梯。"
+                  }
+            ],
+            "corrections": [
+                  {
+                        "wrong": "✕ I'm on my way to to the pool.",
+                        "wrongCn": "✕ 我正在去游泳馆的路上。（to 重复）",
+                        "right": "✓ I'm on my way to the pool.",
+                        "rightCn": "✓ 我正在去游泳馆的路上。",
+                        "noteEn": "Use one to before the destination.",
+                        "note": "目的地前只需要一个 to。"
+                  },
+                  {
+                        "wrong": "✕ It's about five hundreds meters away.",
+                        "wrongCn": "✕ 大约五百米远。（hundred 不加 s）",
+                        "right": "✓ It's about five hundred meters away.",
+                        "rightCn": "✓ 大约五百米远。",
+                        "noteEn": "Hundred stays singular after a specific number such as five.",
+                        "note": "具体数字后面的 hundred 用单数。"
+                  },
+                  {
+                        "wrong": "✕ I'm planning to swim for two kilometers.",
+                        "wrongCn": "✕ 我计划游两公里。（距离前多了 for）",
+                        "right": "✓ I'm planning to swim about two kilometers.",
+                        "rightCn": "✓ 我计划游大约两公里。",
+                        "noteEn": "Use for with a duration, not with a distance after swim.",
+                        "note": "for 可以接持续时间，但 swim 后接距离时不加 for。"
+                  },
+                  {
+                        "wrong": "✕ I swam the three kilometers.",
+                        "wrongCn": "✕ 我游了三公里。（这里不需要 the）",
+                        "right": "✓ I swam three kilometers.",
+                        "rightCn": "✓ 我游了三公里。",
+                        "noteEn": "Use the distance directly after swam when speaking generally.",
+                        "note": "一般描述游了多远时，距离直接放在 swam 后面。"
+                  },
+                  {
+                        "wrong": "✕ It's about a fifteen minutes drive.",
+                        "wrongCn": "✕ 大约十五分钟车程。（复合形容词形式错误）",
+                        "right": "✓ It's about a fifteen-minute drive.",
+                        "rightCn": "✓ 大约十五分钟车程。",
+                        "noteEn": "The compound adjective uses singular minute: fifteen-minute drive.",
+                        "note": "复合形容词中 minute 用单数。"
+                  },
+                  {
+                        "wrong": "✕ It's about five minutes to home.",
+                        "wrongCn": "✕ 到家还有大约五分钟。（表达不够自然）",
+                        "right": "✓ I'm about five minutes from home.",
+                        "rightCn": "✓ 我离家大约五分钟。",
+                        "noteEn": "From home is the natural pattern for remaining distance or travel time.",
+                        "note": "表示离家还有多久，用 from home 更自然。"
+                  },
+                  {
+                        "wrong": "✕ I had to turned back to my mom's.",
+                        "wrongCn": "✕ 我不得不折返回妈妈家。（had to 后动词形式错误）",
+                        "right": "✓ I had to turn back to my mom's.",
+                        "rightCn": "✓ 我不得不折返回妈妈家。",
+                        "noteEn": "Had to is followed by the base form turn.",
+                        "note": "had to 后面接动词原形 turn。"
+                  },
+                  {
+                        "wrong": "✕ I had to turn to my mom's because my glasses left there.",
+                        "wrongCn": "✕ 我因为眼镜落在那里而回妈妈家。（缺少 back 和主语）",
+                        "right": "✓ I had to turn back to my mom's because I left my glasses there.",
+                        "rightCn": "✓ 我因为把眼镜落在那里，不得不折返回妈妈家。",
+                        "noteEn": "Use turn back for returning and I left my glasses there for the cause.",
+                        "note": "折返回去用 turn back；“我把眼镜落在那里”要说 I left my glasses there。"
+                  },
+                  {
+                        "wrong": "✕ I'm just got a mosquito bite.",
+                        "wrongCn": "✕ 我刚被蚊子叮了。（多余的 I'm）",
+                        "right": "✓ I just got a mosquito bite.",
+                        "rightCn": "✓ 我刚被蚊子叮了一下。",
+                        "noteEn": "Just got is already a complete past-tense verb phrase, so do not add I'm.",
+                        "note": "just got 已经是完整的过去式结构，前面不要加 I'm。"
+                  },
+                  {
+                        "wrong": "✕ Car parked. I'm heading to the elevator up.",
+                        "wrongCn": "✕ 车停好了，我正坐电梯上楼。（方向位置不自然）",
+                        "right": "✓ Car's parked. I'm heading up in the elevator.",
+                        "rightCn": "✓ 车停好了，我正坐电梯上楼。",
+                        "noteEn": "Heading up gives the direction first; in the elevator tells us how.",
+                        "note": "先说方向 heading up，再补充方式 in the elevator。"
+                  }
+            ],
+            "reviewEn": "Retell the day in this order: going to the pool, describing the five-hundred-meter distance, planning to swim two kilometers, swimming three kilometers, feeling exhausted but great, driving to your mom's, describing the fifteen-minute drive, turning back for your glasses, heading home, getting a mosquito bite, and taking the elevator up after parking.",
+            "review": "按这个顺序复述：去游泳馆、说明五百米距离、计划游两公里、实际游三公里、筋疲力尽但感觉很好、开车去妈妈家、说明十五分钟车程、因为眼镜折返、回家、被蚊子叮，以及停车后坐电梯上楼。"
       }
     ];
+
+    const lessonDates = {"DAY 01":"2026-07-13","DAY 02":"2026-07-13","DAY 03":"2026-07-13","DAY 04":"2026-07-14","DAY 05":"2026-07-15","DAY 06":"2026-07-16","DAY 07":"2026-07-17","DAY 08":"2026-07-18","DAY 09":"2026-07-25","DAY 10":"2026-07-25","DAY 11":"2026-07-26","DAY 12":"2026-08-11"};
+    const vocabularyByDay = {"DAY 01":[{"word":"romantic","kind":"adj.","meaning":"浪漫的；爱情题材的","example":"I especially like romantic movies.","exampleCn":"我尤其喜欢爱情电影。"},{"word":"especially","kind":"adv.","meaning":"尤其；特别","example":"I especially like pop music.","exampleCn":"我尤其喜欢流行音乐。"},{"word":"relax","kind":"v.","meaning":"放松","example":"Watching movies helps me relax.","exampleCn":"看电影可以帮助我放松。"},{"word":"hiking","kind":"n.","meaning":"徒步；远足","example":"I've never been hiking before.","exampleCn":"我以前从来没有徒步过。"}],"DAY 02":[{"word":"in the middle of","kind":"phrase","meaning":"正在……过程中","example":"I'm in the middle of a project.","exampleCn":"我正在做一个项目。"},{"word":"sleep in","kind":"phrase","meaning":"睡懒觉；晚起","example":"I'm planning to sleep in tomorrow.","exampleCn":"我明天准备睡个懒觉。"},{"word":"light snack","kind":"phrase","meaning":"简单的小吃","example":"I grab a light snack after swimming.","exampleCn":"游完泳后我简单吃点东西。"},{"word":"order in","kind":"phrase","meaning":"点外卖到家","example":"I'm too tired to cook, so I order in.","exampleCn":"我太累了，不想做饭，所以点外卖。"}],"DAY 03":[{"word":"sixteen hundred","kind":"number","meaning":"一千六百","example":"I swam sixteen hundred meters.","exampleCn":"我游了一千六百米。"},{"word":"wiped out","kind":"adj.","meaning":"累坏了；筋疲力尽","example":"By the time I got home, I was wiped out.","exampleCn":"到家时我已经累坏了。"},{"word":"run into","kind":"phrase","meaning":"偶然碰见","example":"I ran into two neighbors in the elevator.","exampleCn":"我在电梯里碰到了两个邻居。"},{"word":"elevator","kind":"n.","meaning":"电梯","example":"I'm taking the elevator up now.","exampleCn":"我现在坐电梯上楼。"}],"DAY 04":[{"word":"head out","kind":"phrase","meaning":"出门；动身","example":"I got ready to head out.","exampleCn":"我准备出门了。"},{"word":"grabbed","kind":"v. past","meaning":"顺路买了；拿了","example":"I grabbed breakfast for my co-workers.","exampleCn":"我顺路给同事买了早餐。"},{"word":"congee","kind":"n.","meaning":"粥；稀饭","example":"I picked up some congee for breakfast.","exampleCn":"我买了些粥当早餐。"},{"word":"tea eggs","kind":"n. pl.","meaning":"茶叶蛋","example":"I picked up some tea eggs for my co-workers.","exampleCn":"我给同事买了些茶叶蛋。"}],"DAY 05":[{"word":"air conditioner","kind":"n.","meaning":"空调","example":"The office air conditioner wasn't working.","exampleCn":"办公室的空调坏了。"},{"word":"work from home","kind":"phrase","meaning":"居家办公","example":"I decided to work from home.","exampleCn":"我决定在家办公。"},{"word":"pull out of","kind":"phrase","meaning":"驶出；从……开出来","example":"I pulled out of the parking garage.","exampleCn":"我把车开出了停车场。"},{"word":"red light","kind":"n.","meaning":"红灯","example":"I'm at a red light.","exampleCn":"我正在等红灯。"}],"DAY 06":[{"word":"co-worker","kind":"n.","meaning":"同事","example":"I picked up breakfast for my co-workers.","exampleCn":"我给同事买了早餐。"},{"word":"dead battery","kind":"phrase","meaning":"没电的电池","example":"My headphones have a dead battery.","exampleCn":"我的耳机没电了。"},{"word":"male","kind":"adj./n.","meaning":"雄性的；公的","example":"It's a male cat.","exampleCn":"它是一只公猫。"},{"word":"wash the dishes","kind":"phrase","meaning":"洗碗","example":"I finished dinner and washed the dishes.","exampleCn":"我吃完晚饭并洗了碗。"}],"DAY 07":[{"word":"clear broth","kind":"n.","meaning":"清汤；清汤底","example":"We're going to eat clear broth hot pot.","exampleCn":"我们要去吃清汤火锅。"},{"word":"supposed to","kind":"phrase","meaning":"本来应该；原本计划","example":"I was supposed to take my car.","exampleCn":"我本来应该开我的车。"},{"word":"midnight","kind":"n.","meaning":"午夜；零点","example":"Prices go up after midnight.","exampleCn":"过了午夜价格会上涨。"},{"word":"sunset","kind":"n.","meaning":"日落；夕阳","example":"Today's sunset is amazing.","exampleCn":"今天的夕阳很美。"}],"DAY 08":[{"word":"cooler","kind":"adj. comparative","meaning":"更凉快的","example":"It feels cooler than yesterday.","exampleCn":"感觉比昨天凉快。"},{"word":"fit","kind":"v.","meaning":"合身；适合","example":"This T-shirt fits me well.","exampleCn":"这件短袖很合身。"},{"word":"pool","kind":"n.","meaning":"游泳池；游泳馆","example":"I'm on my way to the pool.","exampleCn":"我正在去游泳馆的路上。"},{"word":"aim for","kind":"phrase","meaning":"以……为目标","example":"I'm aiming for about two kilometers today.","exampleCn":"我今天的目标是游两公里左右。"}],"DAY 09":[{"word":"business trip","kind":"n.","meaning":"出差","example":"I just got back from a business trip.","exampleCn":"我刚出差回来。"},{"word":"partner","kind":"n.","meaning":"合作伙伴","example":"I met with some business partners.","exampleCn":"我见了一些合作伙伴。"},{"word":"look around","kind":"phrase","meaning":"四处看看；逛一逛","example":"We looked around after the meeting.","exampleCn":"开完会后我们逛了逛。"},{"word":"subscribe again","kind":"phrase","meaning":"重新订阅","example":"I decided to subscribe again.","exampleCn":"我决定重新订阅。"}],"DAY 10":[{"word":"two and a half","kind":"number","meaning":"两个半","example":"I swam two and a half kilometers.","exampleCn":"我游了两点五公里。"},{"word":"take someone home","kind":"phrase","meaning":"送某人回家","example":"I took my mom home after lunch.","exampleCn":"午饭后我送妈妈回家。"},{"word":"greasy","kind":"adj.","meaning":"油腻的","example":"The dishes were greasy.","exampleCn":"这些菜很油腻。"},{"word":"sweaty","kind":"adj.","meaning":"满头大汗的","example":"I was sweaty after swimming.","exampleCn":"游完泳后我满头大汗。"}],"DAY 11":[{"word":"automatic car wash","kind":"n.","meaning":"自动洗车机","example":"I used the automatic car wash first.","exampleCn":"我先使用了自动洗车机。"},{"word":"top up","kind":"phrase","meaning":"充值；加满","example":"I topped up my fuel card.","exampleCn":"我给加油卡充了值。"},{"word":"fill up","kind":"phrase","meaning":"把油箱加满","example":"Finally, I filled up the tank.","exampleCn":"最后我把油箱加满了。"},{"word":"back into","kind":"phrase","meaning":"倒车进入","example":"I'm backing into the assigned spot.","exampleCn":"我正在倒车进入固定车位。"},{"word":"lock up","kind":"phrase","meaning":"锁好；锁上","example":"I'll shut the car off and lock up.","exampleCn":"我会熄火并锁好车。"}],"DAY 12":[{"word":"end up","kind":"phrase","meaning":"结果；最终","example":"I ended up swimming three kilometers.","exampleCn":"结果我游了三公里。"},{"word":"exhausted","kind":"adj.","meaning":"筋疲力尽的","example":"I'm exhausted, but it feels great.","exampleCn":"我筋疲力尽，但感觉很棒。"},{"word":"a fifteen-minute drive","kind":"phrase","meaning":"十五分钟车程","example":"It's about a fifteen-minute drive.","exampleCn":"大约是十五分钟车程。"},{"word":"turn back","kind":"phrase","meaning":"折返回去","example":"I had to turn back to my mom's.","exampleCn":"我不得不折返回妈妈家。"},{"word":"mosquito bite","kind":"n.","meaning":"蚊子叮的包；蚊虫叮咬","example":"I just got a mosquito bite.","exampleCn":"我刚被蚊子叮了一下。"},{"word":"heading up","kind":"phrase","meaning":"正在上楼；往上走","example":"Car's parked. I'm heading up in the elevator.","exampleCn":"车停好了，我正在坐电梯上楼。"}]};
+    lessons.forEach((lesson)=>{ lesson.date=lessonDates[lesson.label]||""; lesson.vocab=vocabularyByDay[lesson.label]||[]; });
 
     let current = Math.min(Number(localStorage.getItem("jason-day") || 0),lessons.length-1);
     let showEn = true, showCn = true;
@@ -2465,11 +2968,51 @@
       "表达固定车位": "Talking about an assigned spot",
       "表达倒车入位": "Backing into a parking spot",
       "表达请对方稍等": "Asking someone to wait",
-      "表达熄火锁车": "Turning off and locking the car"
+      "表达熄火锁车": "Turning off and locking the car",
+      "表达泳池距离": "Describing the pool distance",
+      "表达计划游泳距离": "Planning a swim distance",
+      "表达实际游泳距离": "Talking about the actual distance",
+      "表达筋疲力尽但很开心": "Exhausted but feeling great",
+      "表达十五分钟车程": "A fifteen-minute drive",
+      "表达路上很顺": "Light traffic and arrival time",
+      "表达回家": "Heading home",
+      "表达折返回去": "Turning back",
+      "表达离家还有几分钟": "Minutes from home",
+      "表达被蚊子叮": "Getting a mosquito bite",
+      "表达停车后坐电梯": "Parking and taking the elevator"
     };
 
+    function formatDate(date){return date ? date.replace(/-/g,".") : "日期待补充";}
     function renderPath(){
-      pathEl.innerHTML = lessons.map((d,i)=>`<button class="day-tab ${i===current?'active':''}" data-day="${i}" aria-current="${i===current?'page':'false'}"><span class="day-num">${d.label}</span><span><b>${d.short}</b></span></button>`).join("");
+      const grouped={};
+      lessons.forEach((lesson,index)=>{
+        const parts=(lesson.date||"").split("-");
+        const year=parts[0]||"日期待补充";
+        const month=parts[1]||"";
+        if(!grouped[year])grouped[year]={};
+        if(!grouped[year][month])grouped[year][month]=[];
+        grouped[year][month].push({lesson,index});
+      });
+      const years=Object.keys(grouped).sort((a,b)=>b.localeCompare(a));
+      pathEl.innerHTML =
+        '<div class="archive-heading"><div><span class="archive-kicker">DATE ARCHIVE · 日期归档</span><strong>按年份 → 月份 → 每天</strong></div><small>点击日期打开当天练习</small></div>' +
+        '<div class="date-archive">' +
+        years.map((year,yearIndex)=>{
+          const months=Object.keys(grouped[year]).sort((a,b)=>b.localeCompare(a));
+          const yearCount=months.reduce((sum,month)=>sum+grouped[year][month].length,0);
+          return '<details class="year-group" '+(yearIndex===0?'open':'')+'><summary><span><b>'+esc(year)+'年</b><small>'+yearCount+'天</small></span><span class="archive-chevron">⌄</span></summary><div class="month-list">'+
+            months.map((month,monthIndex)=>{
+              const items=grouped[year][month];
+              return '<details class="month-group" '+(yearIndex===0&&monthIndex===0?'open':'')+'><summary><span><b>'+(month?esc(Number(month)+'月'):'未标注日期')+'</b><small>'+items.length+'天</small></span><span class="archive-chevron">⌄</span></summary><div class="month-days">'+
+                items.map(({lesson,index})=>{
+                  const day=lesson.date ? Number(lesson.date.slice(-2))+'日' : '日期待补充';
+                  return '<button class="day-tab '+(index===current?'active':'')+'" data-day="'+index+'" aria-current="'+(index===current?'page':'false')+'"><span class="day-num">'+day+' · '+esc(lesson.label)+'</span><span><b>'+esc(lesson.short)+'</b></span></button>';
+                }).join('')+
+              '</div></details>';
+            }).join('')+
+          '</div></details>';
+        }).join('')+
+        '</div>';
     }
 
     function render(shouldScroll=false){
@@ -2477,7 +3020,7 @@
       renderPath();
       lessonEl.innerHTML=`
         <header class="lesson-head">
-          <div><div class="lesson-kicker">${d.label} · REAL CONVERSATION</div><h2>${d.titleEn}</h2><p class="lesson-cn">${d.title}</p></div>
+          <div><div class="lesson-kicker">${d.label} · ${formatDate(d.date)} · REAL CONVERSATION</div><h2>${d.titleEn}</h2><p class="lesson-cn">${d.title}</p></div>
           <div class="lang-controls"><button class="toggle ${showEn?'on':''}" data-toggle="en">EN 英文</button><button class="toggle ${showCn?'on':''}" data-toggle="cn">中 中文</button></div>
         </header>
 
@@ -2488,6 +3031,12 @@
               <div class="turn coach"><div class="avatar">C</div><div><div class="speaker">Coach</div><div class="en">${esc(q[0])}</div><div class="cn">${esc(q[1])}</div></div>${speakButton(q[0])}</div>
               <div class="turn jason"><div class="avatar">J</div><div><div class="speaker">Jason</div><div class="en">${esc(q[2])}</div><div class="cn">${esc(q[3])}</div></div>${speakButton(q[2])}</div>
             </article>`).join("")}</div>
+        </section>
+
+
+        <section class="section" id="vocabulary">
+          <div class="section-title"><div><span class="section-kicker">Daily Word Book</span><h3>Words worth keeping.</h3><p>当天值得留下来的词和短语：先理解，再把例句读熟。</p></div></div>
+          <div class="vocab-grid">${(d.vocab||[]).map(v=>'<article class="vocab-card"><div class="vocab-head"><h4 class="vocab-word"><span class="en">'+esc(v.word)+'</span><span class="cn">'+esc(v.meaning)+'</span></h4><span class="word-kind">'+esc(v.kind)+'</span></div><div class="vocab-example"><div><div class="en">'+esc(v.example)+'</div><div class="cn">'+esc(v.exampleCn)+'</div></div>'+speakButton(v.example,true)+'</div></article>').join("")}</div>
         </section>
 
         <section class="section" id="story">
